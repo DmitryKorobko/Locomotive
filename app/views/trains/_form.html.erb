@@ -21,6 +21,16 @@
     <%= form.text_field :train_type %>
   </div>
 
+  <div class="field">
+    <%= form.label :railway_station_id, "Current station" %>
+    <%= form.collection_select :railway_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :route_id, "Current route" %>
+    <%= form.collection_select :route_id, Route.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

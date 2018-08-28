@@ -20,5 +20,27 @@
   <%= @train.train_type %>
 </p>
 
+<% if @train.route.present?%>
+  <p>
+    <strong>In the route:</strong>
+    <%= @train.route.name %>
+  </p>
+<% else %>
+  <p>
+    <strong>Not in the route now!</strong>
+  </p>
+<% end %>
+
+<% if @train.railway_station.present?%>
+  <p>
+    <strong>On the station:</strong>
+    <%= @train.railway_station.title %>
+  </p>
+<% else %>
+  <p>
+    <strong>Not on the station now!</strong>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
