@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Railway Stations</h1>
+<h1>Routes</h1>
 
 <table>
   <thead>
@@ -11,12 +11,12 @@
   </thead>
 
   <tbody>
-    <% @railway_stations.each do |railway_station| %>
+    <% @routes.each do |route| %>
       <tr>
-        <td><%= railway_station.title %></td>
-        <td><%= link_to 'Show', railway_station %></td>
-        <td><%= link_to 'Edit', edit_railway_station_path(railway_station) %></td>
-        <td><%= link_to 'Destroy', railway_station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= route.name %></td>
+        <td><%= link_to 'Show', route %></td>
+        <td><%= link_to 'Edit', edit_route_path(route) %></td>
+        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Railway Station', new_railway_station_path %>
+<%= link_to 'New Route', new_route_path %>

@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_124348) do
+ActiveRecord::Schema.define(version: 2018_08_28_112406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "railway_stations", force: :cascade do |t|
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "railway_stations_routes", force: :cascade do |t|
+    t.integer "railway_station_id"
+    t.integer "route_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +39,8 @@ ActiveRecord::Schema.define(version: 2018_08_27_124348) do
     t.string "train_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "railway_station_id"
+    t.index ["railway_station_id"], name: "index_trains_on_railway_station_id"
   end
 
 end
