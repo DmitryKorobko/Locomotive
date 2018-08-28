@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_112406) do
+ActiveRecord::Schema.define(version: 2018_08_28_132631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 2018_08_28_112406) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "train_number"
+    t.string "start_station"
+    t.string "finish_station"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "train_id"
+    t.index ["train_id"], name: "index_tickets_on_train_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "trains", force: :cascade do |t|
     t.string "number"
     t.string "model"
@@ -40,7 +52,15 @@ ActiveRecord::Schema.define(version: 2018_08_28_112406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "railway_station_id"
+    t.bigint "route_id"
     t.index ["railway_station_id"], name: "index_trains_on_railway_station_id"
+    t.index ["route_id"], name: "index_trains_on_route_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "passport"
   end
 
 end
