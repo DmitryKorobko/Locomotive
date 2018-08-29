@@ -5,31 +5,25 @@
   <%= @route.name %>
 </p>
 
-<% if @route.trains.present?%>
-  <p>
-    <strong>Trains on this route:</strong>
-  </p>
-  <table>
-    <thead>
-    <tr>
-      <th>Number</th>
-      <th>Model</th>
-      <th>Number of wagons</th>
-      <th>Train type</th>
-    </tr>
-    </thead>
+<% if @route.railway_stations.present? %>
+<p>
+  <strong>First Station:</strong>
+  <%= @route.railway_stations.first.title %>
+</p>
 
-    <tbody>
-    <% @route.trains.each do |train| %>
-      <tr>
-        <td><%= train.number %></td>
-        <td><%= train.model %></td>
-        <td><%= train.number_of_wagons %></td>
-        <td><%= train.train_type %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<p>
+  <strong>Last Station:</strong>
+  <%= @route.railway_stations.last.title %>
+</p>
+  <%= render 'railway_stations' %>
+  <% else %>
+  <p>
+    <strong>Not Stations!</strong>
+  </p>
+  <% end %>
+
+<% if @route.trains.present?%>
+  <%= render 'trains' %>
 <% else %>
   <p>
     <strong>Not trains on this route now!</strong>
