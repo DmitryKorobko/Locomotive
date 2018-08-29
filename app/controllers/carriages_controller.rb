@@ -6,7 +6,7 @@ class CarriagesController < ApplicationController
   end
 
   def show
-    @carriage = Carriage.find(1)
+    @carriage = Carriage.find(params[:id])
   end
 
   def new
