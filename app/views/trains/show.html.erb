@@ -42,38 +42,17 @@
   </p>
 <% end %>
 
-<% if @train.wagons.present?%>
-  <p>
-    <strong>Adding wagons on this train:</strong>
-  </p>
-  <table>
-    <thead>
-    <tr>
-      <th>Type of wagon</th>
-      <th>Plazz top places</th>
-      <th>Plazz bottom places</th>
-      <th>Coupe top places</th>
-      <th>Coupe bottom places</th>
-    </tr>
-    </thead>
+<p>
+  <strong>Carriages:</strong>
+  <ul> <% @train.carriages.each do |carr| %>
+    <li><%= link_to "Carriage №#{carr.number}", carr %></li>
+      <% end %>
+  </ul>
+</p>
 
-    <tbody>
-    <% @train.wagons.each do |wagon| %>
-      <tr>
-        <td><%= wagon.wagon_type %></td>
-        <td><%= wagon.plazz_top_places %></td>
-        <td><%= wagon.plazz_bottom_places %></td>
-        <td><%= wagon.coupe_top_places %></td>
-        <td><%= wagon.coupe_bottom_places %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>
-    <strong>Not adding wagons on this train now!</strong>
-  </p>
-<% end %>
+<p>
+  <%= link_to 'Add carriage', new_train_carriage_path(@train) %>
+</p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

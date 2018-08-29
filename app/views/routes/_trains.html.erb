@@ -1,0 +1,24 @@
+<p>
+  <strong>Trains on this route:</strong>
+</p>
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>
+    <th>Model</th>
+    <th>Number of wagons</th>
+    <th>Train type</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @route.trains.each do |train| %>
+    <tr>
+      <td><%= train.number %></td>
+      <td><%= train.model %></td>
+      <td><%= train.number_of_wagons %></td>
+      <td><%= train.train_type %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
