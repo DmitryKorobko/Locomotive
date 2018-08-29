@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_132631) do
+ActiveRecord::Schema.define(version: 2018_08_29_062455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2018_08_28_132631) do
     t.string "first_name"
     t.string "last_name"
     t.string "passport"
+  end
+
+  create_table "wagons", force: :cascade do |t|
+    t.integer "plazz_top_places"
+    t.integer "plazz_bottom_places"
+    t.integer "coupe_top_places"
+    t.integer "coupe_bottom_places"
+    t.string "wagon_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "train_id"
+    t.index ["train_id"], name: "index_wagons_on_train_id"
   end
 
 end

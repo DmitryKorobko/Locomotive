@@ -1,0 +1,37 @@
+<%= form_with(model: wagon, local: true) do |form| %>
+  <%= render 'common/errors', resource: @wagon %>
+
+  <div class="field">
+    <%= form.label :wagon_type %>
+    <%= form.text_field :wagon_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plazz_top_places %>
+    <%= form.number_field :plazz_top_places %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plazz_bottom_places %>
+    <%= form.number_field :plazz_bottom_places %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coupe_top_places %>
+    <%= form.number_field :coupe_top_places %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coupe_bottom_places %>
+    <%= form.number_field :coupe_bottom_places %>
+  </div>
+
+  <div class="field">
+    <%= form.label :train_id, "Current train" %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

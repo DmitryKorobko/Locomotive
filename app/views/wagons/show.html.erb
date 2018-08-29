@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wagon type:</strong>
+  <%= @wagon.wagon_type %>
+</p>
+
+<p>
+  <strong>Plazz top places:</strong>
+  <%= @wagon.plazz_top_places %>
+</p>
+
+<p>
+  <strong>Plazz bottom places:</strong>
+  <%= @wagon.plazz_bottom_places %>
+</p>
+
+<p>
+  <strong>Coupe top places:</strong>
+  <%= @wagon.coupe_top_places %>
+</p>
+
+<p>
+  <strong>Coupe bottom places:</strong>
+  <%= @wagon.coupe_bottom_places %>
+</p>
+
+<%= link_to 'Edit', edit_wagon_path(@wagon) %> |
+<%= link_to 'Back', wagons_path %>
