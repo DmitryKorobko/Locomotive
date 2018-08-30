@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :tickets, only: [:create, :show]
 
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:new, :show, :edit, :create]
 
   namespace :admin do
     resources :trains do
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   get 'welcome/index'
-  root 'welcome#index'
+  root 'searches#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

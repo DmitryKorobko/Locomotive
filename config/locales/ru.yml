@@ -1,0 +1,10 @@
+ru:
+  common:
+    back: 'Назад'
+    errorrs: 'При заполнении формы возникли ошибки'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+
+

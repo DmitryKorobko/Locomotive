@@ -22,12 +22,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :railway_station_id, "Current station" %>
+    <%= form.label :railway_station_id %>
     <%= form.collection_select :railway_station_id, RailwayStation.all, :id, :title %>
   </div>
 
   <div class="field">
-    <%= form.label :route_id, "Current route" %>
+    <%= form.label :route_id %>
     <%= form.collection_select :route_id, Route.all, :id, :name %>
   </div>
 

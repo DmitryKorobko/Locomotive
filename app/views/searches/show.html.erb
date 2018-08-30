@@ -1,3 +1,15 @@
 <h1>Tickets Search</h1>
 
-<%= link_to 'Buy Ticket', tickets_path, method: :post %>
+<div class="row">
+  <%= form_tag search_path do %>
+    <div class="col-md-4">
+      <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
+    </div>
+    <div class="col-md-4">
+      <%= select_tag :end_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
+    </div>
+    <div class="col-md-4">
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
