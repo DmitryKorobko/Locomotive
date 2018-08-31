@@ -1,6 +1,10 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
+  def index
+    @tickets = current_user.tickets
+  end
+
   def show
     @ticket = Ticket.find(params[:id])
   end

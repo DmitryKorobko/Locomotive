@@ -1,0 +1,7 @@
+<p>All tickets of <%= current_user.email %></p>
+
+<ul>
+<% @tickets.each do |ticket| %>
+  <li><%= ticket.route_name %></li>
+<% end %>
+</ul>
